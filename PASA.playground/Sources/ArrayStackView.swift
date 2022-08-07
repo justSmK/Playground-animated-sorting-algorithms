@@ -6,7 +6,7 @@ import Dispatch
 public class ArrayStackView: UIView {
     private let viewWidth: CGFloat = 400
     private let viewHeight: CGFloat = 300
-    private let delayInSeconds: Double = 0.25
+    private let delayInSeconds: Double = 0.05
     
     private let updateOperations = OperationQueue()
 
