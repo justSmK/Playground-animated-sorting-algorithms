@@ -6,7 +6,7 @@ import Dispatch
 public class ArrayStackView: UIView {
     private let viewWidth: CGFloat = 400
     private let viewHeight: CGFloat = 300
-    private let delayInSeconds: Double = 0.05
+    private let delayInSeconds: Double = 0.25
     
     private let updateOperations = OperationQueue()
 
@@ -77,7 +77,7 @@ public class ArrayStackView: UIView {
             width: barWidth,
             height: height)
         
-        let borderWidth: CGFloat = bar.frame.width/12
+        let borderWidth: CGFloat = bar.frame.width / 12
         bar.layer.borderWidth = borderWidth
         bar.layer.borderColor = UIColor.black.cgColor
         bar.layer.cornerRadius = borderWidth * 4
