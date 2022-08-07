@@ -5,7 +5,7 @@ open class DelayOperation: Operation {
     private var _finished = false
     private let delayInSeconds: TimeInterval
     
-    public init(delayInSeconds: TimeInterval) {
+    public init(_ delayInSeconds: TimeInterval) {
         self.delayInSeconds = delayInSeconds
         super.init()
     }
@@ -20,22 +20,23 @@ open class DelayOperation: Operation {
             finish()
             return
         }
+        
         willChangeValue(forKey: "isExecuting")
         _executing = true
         didChangeValue(forKey: "isExecuting")
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + delayInSeconds) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + delayInSeconds, execute: { [weak self] in
             if self?.isCancelled == false {
                 self?.finish()
             }
-        }
+        })
     }
     
-    open override var isExecuting: Bool {
+    override open var isExecuting: Bool {
         return _executing
     }
     
-    open override var isFinished: Bool {
+    override open var isFinished: Bool {
         return _finished
     }
     
